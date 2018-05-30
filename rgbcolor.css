@@ -1,0 +1,51 @@
+
+body{
+	background-color: #201f20;
+	margin: 0;
+	font-family: 'Montserrat';
+	text-transform: uppercase;
+	font-weight: 400;
+}
+
+
+h1{
+	color:  white;
+	text-align: center;
+}
+
+div{
+	width: 100%;
+	float: left
+}
+
+#head{
+	background-color: rgb(60, 118, 174);
+	
+}
+
+#mid{
+	background-color: rgb(255, 255, 255);
+	
+}
+
+
+#rgbDisplay{
+	display: block;
+	color: white;
+	font-size: 1.5em;
+}
+
+.container{
+	margin: 0 auto; 
+	max-width: 600px;
+	float: none;
+}
+
+
+
+.square{
+	width: 30%;
+	margin: 1.66%;
+	padding-bottom: 30%;
+	border-radius: 30px;
+}
