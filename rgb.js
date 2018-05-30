@@ -3,6 +3,8 @@ var colors = [0, 0, 0, 0, 0, 0]; // array that will hold random colors
 var squares = document.querySelectorAll(".square"); // holds all the squares from html doc
 var rightColor; // the correct color to be picked, will be changed later
 var colorDisplay =document.getElementById("rgbDisplay"); // var that'll allow us to dispaly correct color
+var message = document.getElementById("message");
+var h1Header = document.getElementById("head");
 
 /* Code to be executed */
 createSquares();
@@ -44,11 +46,23 @@ function assignColors() {
 		squares[i].addEventListener("click", function(){
 			// compare to rightColor
 			var clickedColor = this.style.backgroundColor; 
+			
 			if(clickedColor === rightColor){
-				alert("Correct!");
+				// update message
+				message.textContent = "Correct!";
+				
+				// change the colors of all the squares
+				for(var i = 0; i < squares.length ; i++){
+					squares[i].style.backgroundColor = rightColor;
+				}
+
+				// change h1Header
+				h1Header.style.backgroundColor=rightColor;
 			}
+
 			else{
-				alert("Wrong!");
+				this.style.backgroundColor=null;
+				message.textContent = "Try Again";
 			}
 		});
 	} // end for

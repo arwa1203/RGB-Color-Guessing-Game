@@ -49,3 +49,12 @@ div{
 	padding-bottom: 30%;
 	border-radius: 30px;
 }
+
+#message{
+	
+}
+
+.fade{
+	opacity: 1;
+	transition: 1s;
+}
