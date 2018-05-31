@@ -1,5 +1,5 @@
 /* Variables */
-var colors = [0, 0, 0, 0, 0, 0]; // array that will hold random colors
+var colors = []; // array that will hold random colors
 var squares = document.querySelectorAll(".square"); // holds all the squares from html doc
 var rightColor; // the correct color to be picked, will be changed later
 var colorDisplay =document.getElementById("rgbDisplay"); // var that'll allow us to dispaly correct color
@@ -8,10 +8,10 @@ var h1Header = document.getElementById("head");
 var resetBtn = document.querySelector("#reset");
 var easyBtn = document.querySelector("#easy");
 var hardBtn = document.querySelector("#hard");
-var mode = "hard"; // game starts off as hard
+var mode = 6; // game starts off as hard
 
 /* Code to be executed */
-createSquares();
+colors = createSquares(6);
 assignColors();
 addSqListener();
 addButtonListeners();
@@ -20,12 +20,14 @@ addButtonListeners();
 /* Function Section */
 
 // createSquares(): function that assigns rgb's to the colors array
-function createSquares(){
-	// assuming there are 6 squares
-	for(var i = 0; i < 6; i++){
-		colors[i]= pickColor();
+function createSquares(num){
+	var arr = [];
+	for(var i = 0; i < num; i++){
+		arr.push(pickColor());
 	}
+	return arr;
 }
+
 
 // pickColor(): function that creates a random rgb string
 function pickColor(){
@@ -40,7 +42,7 @@ function pickColor(){
 //			with the colors array and adds event listeners to squares 
 function assignColors() {
 	// assign the right color
-	rightColor = colors[Math.floor(Math.random()*6)];
+	rightColor = colors[Math.floor(Math.random()*mode)];
 	// display it
 	colorDisplay.textContent = rightColor;
 
@@ -53,7 +55,10 @@ function assignColors() {
 
 // resetColors(): function will reset the game
 function resetColors(){
-	createSquares();
+	
+	colors = createSquares(mode);
+
+	
 	assignColors();
 
 	// update message
@@ -66,8 +71,40 @@ function resetColors(){
 	resetBtn.textContent = "New Colors";
 }
 
+// changeMode() function that will transition the game between easy and hard mode
+function changeMode(md){
+	if(md === 3){
+		mode = md;
+		resetColors();
 
+		// hide squares if colors array isnt big enough
+		for(var i = 0; i < squares.length ; i++){
+			if(colors[i]){
+				squares[i].style.backgroundColor = colors[i];
+			}
+			else{
+				squares[i].style.display = "none";
+			}
+		}
 
+		easyBtn.classList.add("modeSelected");
+		hardBtn.classList.remove("modeSelected");
+	}
+	else{
+		mode  = md;
+		resetColors();
+
+		for(var i = 0; i < squares.length ; i++){
+			
+			squares[i].style.backgroundColor = colors[i];
+			squares[i].style.display = "block";
+			
+		}
+
+		easyBtn.classList.remove("modeSelected");
+		hardBtn.classList.add("modeSelected");
+	}
+}
 
 // addSqListener(): function will add event listeners to squares
 function addSqListener(){
@@ -113,14 +150,15 @@ function addButtonListeners(){
 	// add event listener to easy button
 	easyBtn.addEventListener("click", function(){
 		// change mode to easy
-		mode = "easy";
+		changeMode(3);
 	});
 
 	// add event listener to hard button
 	hardBtn.addEventListener("click", function(){
 		// change mode to hard
-		mode = "hard";
+		changeMode(6);
 	});
 
 
 }
+

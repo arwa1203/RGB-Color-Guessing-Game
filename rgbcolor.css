@@ -44,6 +44,12 @@ button{
 	text-align: center;
 }
 
+.modeSelected{
+	background-color: rgb(60, 118, 174);
+}
+
+
+
 .right{
 	float: right;
 }
