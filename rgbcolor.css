@@ -18,6 +18,11 @@ div{
 	float: left
 }
 
+button{
+	background-color: white;
+	border: 0px solid;
+}
+
 #head{
 	background-color: rgb(60, 118, 174);
 	
@@ -25,7 +30,7 @@ div{
 
 #mid{
 	background-color: rgb(255, 255, 255);
-	
+	height: 30px;
 }
 
 
@@ -35,13 +40,25 @@ div{
 	font-size: 1.5em;
 }
 
+#message{
+	text-align: center;
+}
+
+.modeSelected{
+	background-color: rgb(60, 118, 174);
+}
+
+
+
+.right{
+	float: right;
+}
+
 .container{
 	margin: 0 auto; 
 	max-width: 600px;
 	float: none;
 }
-
-
 
 .square{
 	width: 30%;
@@ -50,11 +67,8 @@ div{
 	border-radius: 30px;
 }
 
-#message{
-	
-}
-
 .fade{
 	opacity: 1;
 	transition: 1s;
 }
+
