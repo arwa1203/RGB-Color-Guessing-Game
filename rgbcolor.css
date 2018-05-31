@@ -4,23 +4,40 @@ body{
 	margin: 0;
 	font-family: 'Montserrat';
 	text-transform: uppercase;
-	font-weight: 400;
 }
+
 
 
 h1{
 	color:  white;
 	text-align: center;
+	line-height: 1.1;
+	font-weight: 400;
 }
 
 div{
 	width: 100%;
 	float: left
+	/*padding-top: 10px ;*/
 }
 
 button{
 	background-color: white;
-	border: 0px solid;
+	border: none;
+	text-transform: uppercase;
+	height: 100%;
+	font-weight: 700;
+	color:  rgb(60, 118, 174);
+	letter-spacing: 1px;
+	font-size: inherit;
+	-webkit-transtion:all 0.3s;
+	-moz-transition:all 0.3s;
+	outline: none;
+}
+
+button:hover{
+	background-color: rgb(60, 118, 174);
+	color:white;
 }
 
 #head{
@@ -31,28 +48,33 @@ button{
 #mid{
 	background-color: rgb(255, 255, 255);
 	height: 30px;
+	text-align: center;
+	margin-bottom: 6px;
 }
 
 
 #rgbDisplay{
 	display: block;
 	color: white;
-	font-size: 1.5em;
+	font-size: 2em;
 }
 
 #message{
-	text-align: center;
+	display: inline-block;
+	width: 20%;
+
 }
 
 .modeSelected{
 	background-color: rgb(60, 118, 174);
+	color:white;
 }
 
-
+/*
 
 .right{
 	float: right;
-}
+}*/
 
 .container{
 	margin: 0 auto; 
@@ -65,10 +87,9 @@ button{
 	margin: 1.66%;
 	padding-bottom: 30%;
 	border-radius: 30px;
+	transition: background-color 0.6s;
+	-webkit-transtion:background-color 0.6s;
+	-moz-transition:background-color 0.6s;
 }
 
-.fade{
-	opacity: 1;
-	transition: 1s;
-}
 
